@@ -10,7 +10,9 @@ let usersRouter = require('./routes/users');
 let Post = require('./models/posts').Post;
 let auth = require('./controllers/auth');
 let DB = require('./config/db')
-
+const dotenv = require('dotenv');
+dotenv.config({ path: './config/config.env' })
+const PORT = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
 
 //console.log(uniqid());
@@ -64,4 +66,4 @@ app.get('/login', (req, res) =>{
 })
 
 
-app.listen(3000, () => console.log('Listening 3000...'));
+app.listen(PORT, () => console.log(`Listening ${port} ...`));
